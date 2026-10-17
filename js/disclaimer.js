@@ -6,8 +6,8 @@
  * session can start. Edit the text below to match your legal wording.
  */
 var DISCLAIMER = {
-  title: 'Before you chat with us',
-  body: 'Chats may be recorded and monitored for quality and training. ' +
+  title: 'Before you CoBrowse with us',
+  body: 'Sessions may be recorded and monitored for quality and training. ' +
         'If you agree to co-browse, our agent can see this website as you see it, ' +
         'but not other tabs or apps on your device. Payment card fields are always hidden from the agent. ' +
         'By selecting "I agree" you consent to these terms.',
