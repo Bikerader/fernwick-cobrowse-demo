@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fernwick Outfitters — Checkout</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/genesys.js"></script>
+</head>
+<body>
+  <div class="demo-banner">Demo checkout. Use test card numbers only. Do not enter a real card. Nothing you enter is sent or saved.</div>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="index.html">Fernwick<span>&nbsp;Outfitters</span></a>
+      <nav>
+        <a href="index.html">Company</a>
+        <a href="payment.html" class="active">Checkout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Checkout</h1>
+      <p>Finish your order below. Our support team can help over co-browse, and the card fields stay hidden from them.</p>
+    </section>
+
+    <section class="two-col">
+      <div class="card">
+        <h2>Payment details</h2>
+        <!-- No action attribute: the form never leaves the browser. -->
+        <form id="payment-form" autocomplete="off" novalidate>
+          <label for="cc-name">Name on card</label>
+          <input id="cc-name" name="cc-name" type="text" placeholder="Jordan Sample">
+
+          <!-- class="cobrowse-mask" marks the fields to mask in Genesys Co-browse -->
+          <label for="cc-number">Card number</label>
+          <input id="cc-number" name="cc-number" class="cobrowse-mask" type="text" inputmode="numeric" maxlength="23" placeholder="4111 1111 1111 1111">
+          <div class="hint" id="cc-brand">&nbsp;</div>
+
+          <div class="row">
+            <div>
+              <label for="cc-exp">Expiry (MM/YY)</label>
+              <input id="cc-exp" name="cc-exp" class="cobrowse-mask" type="text" inputmode="numeric" maxlength="5" placeholder="12/30">
+            </div>
+            <div>
+              <label for="cc-cvv">CVV</label>
+              <input id="cc-cvv" name="cc-cvv" class="cobrowse-mask" type="password" inputmode="numeric" maxlength="4" placeholder="123">
+            </div>
+          </div>
+
+          <label for="billing-zip">Billing ZIP</label>
+          <input id="billing-zip" name="billing-zip" type="text" inputmode="numeric" maxlength="10" placeholder="80999">
+
+          <label for="shipping">Shipping</label>
+          <select id="shipping" name="shipping">
+            <option value="0">Standard (5–7 days) — Free</option>
+            <option value="12">Express (2 days) — $12.00</option>
+            <option value="25">Overnight — $25.00</option>
+          </select>
+
+          <button class="btn" type="submit">Place test order</button>
+          <a class="btn secondary" href="index.html">Back</a>
+          <div class="notice" id="payment-notice"></div>
+        </form>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>Order summary</h2>
+          <div class="order-line"><span>Ridgeback 45L Pack</span><span>$189.00</span></div>
+          <div class="order-line"><span>Enamel Mug (x2)</span><span>$28.00</span></div>
+          <div class="order-line"><span>Shipping</span><span id="ship-cost">$0.00</span></div>
+          <div class="order-line total"><span>Total</span><span id="total">$217.00</span></div>
+        </div>
+
+        <div class="card test-cards" style="margin-top:16px">
+          <h3>Test card numbers</h3>
+          <p>Visa <code>4111 1111 1111 1111</code></p>
+          <p>Mastercard <code>5555 5555 5555 4444</code></p>
+          <p>Amex <code>3782 822463 10005</code></p>
+          <p>Any future expiry and any CVV will work.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">© Fernwick Outfitters (fictional). Built for Genesys Cloud Co-browse testing.</div>
+  </footer>
+
+  <script src="js/payment.js"></script>
+</body>
+</html>

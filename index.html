@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fernwick Outfitters — Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/genesys.js"></script>
+</head>
+<body>
+  <div class="demo-banner">Demo site. Fernwick Outfitters is a made-up company used for Genesys Cloud Co-browse testing. Nothing you enter is sent or saved.</div>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="index.html">Fernwick<span>&nbsp;Outfitters</span></a>
+      <nav>
+        <a href="index.html" class="active">Company</a>
+        <a href="payment.html">Checkout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Gear for the long way around.</h1>
+      <p>Fernwick Outfitters has made trail-tested packs, shelters and camp kitchens in Ashgrove Falls since 2009. Every item comes with a lifetime repair promise.</p>
+      <a class="btn" href="payment.html">Go to checkout</a>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Packs</h3>
+        <p>The Ridgeback 45L and Daytripper 22L, built from recycled sailcloth.</p>
+      </div>
+      <div class="card">
+        <h3>Shelters</h3>
+        <p>Ultralight tarps and two-person tents that pitch in under three minutes.</p>
+      </div>
+      <div class="card">
+        <h3>Camp kitchen</h3>
+        <p>Nesting cookware, folding stoves and enamel mugs that outlast the trip.</p>
+      </div>
+      <div class="card">
+        <h3>Repairs</h3>
+        <p>Send in anything we made and we'll fix it free for as long as you own it.</p>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="card">
+        <h2>About the company</h2>
+        <dl class="facts">
+          <dt>Founded</dt><dd>2009</dd>
+          <dt>Headquarters</dt><dd>214 Millrace Lane, Ashgrove Falls, CO 80999</dd>
+          <dt>Phone</dt><dd>(555) 010-4477</dd>
+          <dt>Email</dt><dd>help@fernwick.example</dd>
+          <dt>Hours</dt><dd>Mon–Fri 8am–6pm MT, Sat 9am–2pm MT</dd>
+          <dt>Employees</dt><dd>48</dd>
+          <dt>Customer ID format</dt><dd>FW-000000</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h2>Customer details</h2>
+        <form id="profile-form" autocomplete="off">
+          <div class="row">
+            <div>
+              <label for="first-name">First name</label>
+              <input id="first-name" name="first-name" type="text" placeholder="Jordan">
+            </div>
+            <div>
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="last-name" type="text" placeholder="Sample">
+            </div>
+          </div>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="jordan@example.com">
+
+          <div class="row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 010-1234">
+            </div>
+            <div>
+              <label for="customer-id">Customer ID</label>
+              <input id="customer-id" name="customer-id" type="text" placeholder="FW-123456">
+            </div>
+          </div>
+
+          <label for="address">Street address</label>
+          <input id="address" name="address" type="text" placeholder="1 Test Street">
+
+          <div class="row">
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" placeholder="Ashgrove Falls">
+            </div>
+            <div>
+              <label for="topic">Reason for contact</label>
+              <select id="topic" name="topic">
+                <option>Order status</option>
+                <option>Product question</option>
+                <option>Repair request</option>
+                <option>Billing</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Describe what you need help with"></textarea>
+
+          <button class="btn" type="submit">Save details</button>
+          <div class="notice" id="profile-notice">Details saved for this demo. Nothing was sent anywhere.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">© Fernwick Outfitters (fictional). Built for Genesys Cloud Co-browse testing.</div>
+  </footer>
+
+  <script>
+    document.getElementById('profile-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('profile-notice').classList.add('show');
+    });
+  </script>
+</body>
+</html>
