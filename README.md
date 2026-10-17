@@ -27,3 +27,10 @@ A fictional two-page static site for testing Genesys Cloud Co-browse. Nothing en
 | Amex | 3782 822463 10005 |
 
 Any future expiry and any CVV.
+
+## Legal disclaimer (Toaster plugin)
+
+`js/disclaimer.js` uses the Messenger SDK Toaster plugin to show a disclaimer once per browser session.
+Accepting hides it for the rest of the session. Declining hides the Messenger launcher, so no chat or
+co-browse can start. Edit the `DISCLAIMER` text at the top of the file. To show it again while
+testing, open a new tab or run `sessionStorage.removeItem('fernwick-disclaimer')` in the console.
