@@ -169,3 +169,6 @@ footer.site {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* Set by js/disclaimer.js when the visitor declines the disclaimer */
+.messenger-hidden #genesys-messenger { display: none !important; }

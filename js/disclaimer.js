@@ -26,9 +26,11 @@ var DISCLAIMER = {
   function saveChoice(value) {
     try { sessionStorage.setItem(KEY, value); } catch (e) { /* storage blocked: ask again next page */ }
   }
+  // Launcher.hide only works when the Messenger configuration lets the page
+  // control the launcher. If Genesys rejects it, hide the Messenger with CSS.
   function hideLauncher() {
     Genesys('command', 'Launcher.hide', {}, function () {}, function () {
-      console.warn('[demo] Could not hide the Messenger launcher.');
+      document.documentElement.classList.add('messenger-hidden');
     });
   }
 
@@ -39,6 +41,23 @@ var DISCLAIMER = {
   }
   if (choice === 'accepted') return;
 
+  // Toaster.open's own callbacks fire when the toaster opens, not when a
+  // button is clicked, so the choice is read from the Toaster events instead.
+  Genesys('subscribe', 'Toaster.accepted', function () {
+    saveChoice('accepted');
+  });
+  Genesys('subscribe', 'Toaster.declined', function () {
+    saveChoice('declined');
+    hideLauncher();
+  });
+  Genesys('subscribe', 'Toaster.closed', function () {
+    // Closed with the X and no button chosen: treat as declined
+    if (!getChoice()) {
+      saveChoice('declined');
+      hideLauncher();
+    }
+  });
+
   Genesys('subscribe', 'Toaster.ready', function () {
     Genesys('command', 'Toaster.open', {
       title: DISCLAIMER.title,
@@ -48,13 +67,6 @@ var DISCLAIMER = {
         primary: DISCLAIMER.agree,
         secondary: DISCLAIMER.decline
       }
-    }, function () {
-      // Primary button: disclaimer accepted
-      saveChoice('accepted');
-    }, function () {
-      // Secondary button or closed: treat as declined
-      saveChoice('declined');
-      hideLauncher();
     });
   });
 })();
