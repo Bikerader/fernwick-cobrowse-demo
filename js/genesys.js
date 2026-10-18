@@ -7,9 +7,9 @@
  * 3. Paste the deployment ID and region below. Both pages load this file,
  *    so the session follows the customer from page to page.
  */
-var GENESYS_DEPLOYMENT_ID = 'YOUR-DEPLOYMENT-ID';
+var GENESYS_DEPLOYMENT_ID = 'ea0c2624-201e-47e0-89aa-8de0de0962c3';
 // Region host, e.g. mypurecloud.com (US East), usw2.pure.cloud, mypurecloud.ie, euw2.pure.cloud, mypurecloud.com.au
-var GENESYS_REGION = 'mypurecloud.com';
+var GENESYS_REGION = 'usw2.pure.cloud';
 
 (function (g, e, n, es, ys) {
   if (GENESYS_DEPLOYMENT_ID === 'YOUR-DEPLOYMENT-ID') {
